@@ -4,11 +4,11 @@ const btn_join = document.getElementById("btn_join")
 
 const inputmessage = document.getElementById("message")
 const btn_send = document.getElementById("btn_send")
-const ul_message=document.getElementById("ul_message")
+const ul_message = document.getElementById("ul_message")
 const socket = io.connect()
 
 
-let myname=localStorage.getItem("username")
+let myname = localStorage.getItem("username")
 
 socket.on("connect", (data) => {
     console.log(data)
@@ -41,17 +41,37 @@ inputmessage.addEventListener("keydown", (event) => {
         sendMessage()
     }
 })
-socket.on("thread", (data) => { 
+socket.on("thread", (data) => {
 
-    const obj=JSON.parse(data)
+    const obj = JSON.parse(data)
     console.log(data)
     const li = document.createElement("li")
     li.innerHTML = obj.message
 
-    if (obj.name === myname) { 
+    if (obj.name === myname) {
         li.classList.add("right")
     }
 
     ul_message.appendChild(li)
     ul_message.scrollTop = ul_message.scrollHeight // tu dong cuon den tin nhan moi
 })
+
+const choose_emotion = document.getElementsByClassName("choose_emotion")
+for (let ce of choose_emotion) {
+    ce.addEventListener("click", (e) => {
+        if (e.target.innerHTML.toString().trim().length===0) {
+            
+            e.target.innerHTML = `
+           <div class="emotion">
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-face-laugh-wink"></i>
+                                <i class="fa-regular fa-face-surprise"></i>
+                                <i class="fa-regular fa-face-rolling-eyes"></i>
+                                <i class="fa-solid fa-face-angry"></i>
+                            </div>`
+        }
+        else {
+            e.target.innerHTML = ""
+        }
+    })
+}

@@ -3,7 +3,8 @@ const accountModel = require('../models/account.model')
 module.exports = {
 
     renderChat: async (req, res) => { 
-        return res.render('chat.ejs')
+        const accounts = await accountModel.find()
+        return res.render('chat.ejs',{accounts:accounts})
 
     }
 }

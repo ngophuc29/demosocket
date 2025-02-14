@@ -1,19 +1,26 @@
 <link rel="stylesheet" href="css/style.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <div class="" style="display: flex;">
 
     <ul class="list_user">
-        <li>
-            <div class="" style="display: flex;">
-                UserName : <p></p>
-            </div>
-            <div class="" style="display: flex;">
-                FullName : <p></p>
-            </div>
-        </li>
-
-
+        <% accounts.forEach((account)=> { %>
+            <li>
+                <div style="display: flex;">
+                    <span>UserName: </span>
+                    <p>
+                        <%= account.username %>
+                    </p>
+                </div>
+                <div style="display: flex;">
+                    <span>FullName: </span>
+                    <p>
+                        <%= account.fullname %>
+                    </p>
+                </div>
+            </li>
+            <% }); %>
     </ul>
+
     <div class="container">
 
         <div class="container_join">
@@ -27,7 +34,23 @@
         <br>
 
         <ul id="ul_message">
+            <li>
+                <span>Tin Nhan</span>
+                <div class="choose_emotion">
+                    <i class="fa-regular fa-face-smile">
 
+                        <!-- <div class="emotion">
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-face-laugh-wink"></i>
+                            <i class="fa-regular fa-face-surprise"></i>
+                            <i class="fa-regular fa-face-rolling-eyes"></i>
+                            <i class="fa-solid fa-face-angry"></i>
+                        </div> -->
+
+                    </i>
+                    
+                </div>
+            </li>
 
         </ul>
 
