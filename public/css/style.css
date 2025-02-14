@@ -76,3 +76,23 @@ body {
     width: 20%;
     padding: 10px;
 }
+
+.list_user{
+    list-style: none;
+    width: 30%;
+    padding: 20px;
+    background-color: rgb(204, 94, 94);
+    overflow-y: scroll;
+    height: 90vh;
+    box-sizing: border-box;
+}
+.list_user li {
+    background-color: cyan;
+    border-radius: 14px;
+    padding: 16px;
+    margin-top: 20px;
+}
+.list_user li div{
+    display: flex;
+    
+}
