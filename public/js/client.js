@@ -53,4 +53,5 @@ socket.on("thread", (data) => {
     }
 
     ul_message.appendChild(li)
+    ul_message.scrollTop = ul_message.scrollHeight // tu dong cuon den tin nhan moi
 })
