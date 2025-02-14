@@ -1,4 +1,4 @@
-const inputname = document.getElementById("name")
+// const inputname = document.getElementById("name")
 const inputroom = document.getElementById("room")
 const btn_join = document.getElementById("btn_join")
 
@@ -8,13 +8,13 @@ const ul_message=document.getElementById("ul_message")
 const socket = io.connect()
 
 
-let myname=""
+let myname=localStorage.getItem("username")
 
 socket.on("connect", (data) => {
     console.log(data)
 })
 btn_join.addEventListener("click", () => {
-    myname = inputname.value
+    // myname = inputname.value
     const room = inputroom.value
     socket.emit("join", room)
     alert("Join room " + room)

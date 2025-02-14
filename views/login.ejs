@@ -52,6 +52,9 @@
             if(result.statusCode){
                 alert(result.message)
             }else{
+                localStorage.setItem('username',result.username)
+                
+
                 window.location = "/chat"
             }
         })
