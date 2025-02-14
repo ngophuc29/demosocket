@@ -26,6 +26,10 @@ io.on('connection', (client) => {
     client.on("message", (data) => {
         io.to(room).emit("thread",data)
     })
+
+    client.on("emotion", (data) => { 
+        io.to(room).emit("emotion",data)
+    })
 })
 
 

@@ -52,7 +52,7 @@ body {
     margin-top: 5px;
     align-items: center;
 }
-#ul_message li span{
+#ul_message li span p{
     background-image:linear-gradient(rgb(204, 94, 94),rgb(160, 212, 212)) ;
     padding: 5px;
     color: white;
