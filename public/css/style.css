@@ -91,6 +91,11 @@ body {
     flex-direction: row-reverse;
     
 }
+.right .choose_emotion .emotion{
+    /* float: right !important; */
+    right: 10px;
+
+}
 .container_send {
     width: 100%;
     display: flex;

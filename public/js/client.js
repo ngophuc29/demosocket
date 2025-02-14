@@ -51,7 +51,7 @@ socket.on("thread", (data) => {
     `
     <span>${obj.message}</span>
     <div class="">
-        <i class="choose_emotion fa-regular fa-face-smile"></i>
+        <i onclick="show(event)" class="choose_emotion fa-regular fa-face-smile"></i>
 
     </div>
         `
@@ -64,19 +64,14 @@ socket.on("thread", (data) => {
 
     ul_message.appendChild(li)
     ul_message.scrollTop = ul_message.scrollHeight // tu dong cuon den tin nhan moi
-    loadChooseEmotion()
+   
 })
 
+function show(e) {
+    if (e.target.classList.contains("choose_emotion")) {
+        if (e.target.innerHTML.toString().trim().length === 0) {
 
-function loadChooseEmotion(){ 
-
-    const choose_emotion = document.getElementsByClassName("choose_emotion")
-    for (let ce of choose_emotion) {
-        ce.addEventListener("click", (e) => {
-            if (e.target.classList.contains("choose_emotion")) {
-                if (e.target.innerHTML.toString().trim().length === 0) {
-
-                    e.target.innerHTML = `
+            e.target.innerHTML = `
                             <div class="emotion">
                                 <i class="fa-solid fa-heart"></i>
                                 <i class="fa-solid fa-face-laugh-wink"></i>
@@ -84,12 +79,35 @@ function loadChooseEmotion(){
                                 <i class="fa-regular fa-face-rolling-eyes"></i>
                                 <i class="fa-solid fa-face-angry"></i>
                             </div>`
-                }
-                else {
-                    e.target.innerHTML = ""
-                }
-            }
-        })
+        }
+        else {
+            e.target.innerHTML = ""
+        }
     }
 }
-loadChooseEmotion()
+
+// function loadChooseEmotion(){ 
+
+//     const choose_emotion = document.getElementsByClassName("choose_emotion")
+//     for (let ce of choose_emotion) {
+//         ce.addEventListener("click", (e) => {
+//             if (e.target.classList.contains("choose_emotion")) {
+//                 if (e.target.innerHTML.toString().trim().length === 0) {
+
+//                     e.target.innerHTML = `
+//                             <div class="emotion">
+//                                 <i class="fa-solid fa-heart"></i>
+//                                 <i class="fa-solid fa-face-laugh-wink"></i>
+//                                 <i class="fa-regular fa-face-surprise"></i>
+//                                 <i class="fa-regular fa-face-rolling-eyes"></i>
+//                                 <i class="fa-solid fa-face-angry"></i>
+//                             </div>`
+//                 }
+//                 else {
+//                     e.target.innerHTML = ""
+//                 }
+//             }
+//         })
+//     }
+// }
+// loadChooseEmotion()
