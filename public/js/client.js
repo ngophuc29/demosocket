@@ -46,7 +46,17 @@ socket.on("thread", (data) => {
     const obj = JSON.parse(data)
     console.log(data)
     const li = document.createElement("li")
-    li.innerHTML = obj.message
+    li.innerHTML =
+        
+    `
+    <span>${obj.message}</span>
+    <div class="">
+        <i class="choose_emotion fa-regular fa-face-smile"></i>
+
+    </div>
+        `
+        
+        // obj.message
 
     if (obj.name === myname) {
         li.classList.add("right")
@@ -54,24 +64,32 @@ socket.on("thread", (data) => {
 
     ul_message.appendChild(li)
     ul_message.scrollTop = ul_message.scrollHeight // tu dong cuon den tin nhan moi
+    loadChooseEmotion()
 })
 
-const choose_emotion = document.getElementsByClassName("choose_emotion")
-for (let ce of choose_emotion) {
-    ce.addEventListener("click", (e) => {
-        if (e.target.innerHTML.toString().trim().length===0) {
-            
-            e.target.innerHTML = `
-           <div class="emotion">
+
+function loadChooseEmotion(){ 
+
+    const choose_emotion = document.getElementsByClassName("choose_emotion")
+    for (let ce of choose_emotion) {
+        ce.addEventListener("click", (e) => {
+            if (e.target.classList.contains("choose_emotion")) {
+                if (e.target.innerHTML.toString().trim().length === 0) {
+
+                    e.target.innerHTML = `
+                            <div class="emotion">
                                 <i class="fa-solid fa-heart"></i>
                                 <i class="fa-solid fa-face-laugh-wink"></i>
                                 <i class="fa-regular fa-face-surprise"></i>
                                 <i class="fa-regular fa-face-rolling-eyes"></i>
                                 <i class="fa-solid fa-face-angry"></i>
                             </div>`
-        }
-        else {
-            e.target.innerHTML = ""
-        }
-    })
+                }
+                else {
+                    e.target.innerHTML = ""
+                }
+            }
+        })
+    }
 }
+loadChooseEmotion()

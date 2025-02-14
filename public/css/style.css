@@ -63,7 +63,7 @@ body {
 }
 .choose_emotion{
     margin-left: 5px;
-    display: none;
+    display: none !important; ;
     position: relative;
 }
 .emotion{
@@ -84,7 +84,7 @@ body {
     transform: scale(1.2);
 }
 #ul_message li:hover .choose_emotion{
-   display: block;
+   display: block !important;
 }
 .right{
     /* float: right !important; */
