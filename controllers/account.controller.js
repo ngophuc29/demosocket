@@ -8,6 +8,8 @@ module.exports = {
     },
     login: async (req, res) => { 
         const body = req.body;
+        // console.log(body);
+        
         const account = await accountModel.findOne({
             username: body.username,
             password: body.password
@@ -15,7 +17,7 @@ module.exports = {
         if (!account) {
             return res.status(404).json({
                 statusCode: 404,
-                message:'Account not found'
+                message:'tai khoan hoac mat khau khong dung'
             })
         }
 
